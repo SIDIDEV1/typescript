@@ -1,16 +1,21 @@
-class Fish {
-  shout() {
-    return false;
-  }
-}
+import Alpine from 'alpinejs'
 
-class Cat {
-  shout() {
-    return "miaou";
-  }
-}
-
-type AnimalShout<T> = T extends { shout: () => infer U } ? U : never;
-
-type A = AnimalShout<Fish>;
-type B = AnimalShout<Cat>;
+Alpine.data('myComponent', function (initial: number = 0) {
+    return {
+        compteur: initial,
+        increment () {
+            this.compteur += 1
+        },
+        decrement () {
+            this.compteur -= 1
+            if (this.compteur < 0) {
+                // $el fera référence à un élément HTML et aura comme type HTMLElement
+                this.$el.style.display = "none"
+            }
+        },
+        getCompteur () {
+            return this.compteur
+        }
+    }
+})
+Alpine.start();
