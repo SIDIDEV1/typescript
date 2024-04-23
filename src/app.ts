@@ -1,13 +1,16 @@
-type ListItem = [string, number];
+export class Point {
+  x = 0;
+  y = 0;
 
-const a: ListItem = ["tomate", 2];
-const b: ListItem = ["viande", 2];
+  move(x: number, y: number) {
+    this.x += x;
+    this.y += y;
 
-function merge<T extends unknown[], U extends unknown[]>(
-  a: T,
-  b: U
-): [...T, ...U] {
-  return [...a, ...b];
+    return this;
+  }
 }
 
-const c = merge(a, b);
+ga("send", {
+  hitType: "event",
+  eventCategory: "category",
+});
