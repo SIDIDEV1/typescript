@@ -6,7 +6,8 @@
     "strict": true,
     "skipLibCheck": true,
     "declaration": true,
-    "moduleResolution": "Node"
+    "moduleResolution": "Node",
+    "experimentalDecorators": true
   },
   "files": ["src/app.ts"],
   "include": ["src/types/**/*"]
