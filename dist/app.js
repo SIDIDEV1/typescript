@@ -1,4 +1,7 @@
 "use strict";
-function reverse(arg) {
-    return [...arg].reverse();
+const a = ["tomate", 2];
+const b = ["viande", 2];
+function merge(a, b) {
+    return [...a, ...b];
 }
+const c = merge(a, b);
