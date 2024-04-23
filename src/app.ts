@@ -1,16 +1,16 @@
-class Fish {}
-
-class Cat {}
-
-type AnimalOption = { swim: any } | { jump: any };
-type AnimalFromOption<T> = T extends { swim: any } ? Fish : Cat;
-
-function generator<T extends AnimalOption>(options: T): AnimalFromOption<T> {
-  if ("swim" in options) {
-    return new Fish();
-  } else {
-    return new Cat();
+class Fish {
+  shout() {
+    return false;
   }
 }
 
-const a = generator({ jump: "sauter" });
+class Cat {
+  shout() {
+    return "miaou";
+  }
+}
+
+type AnimalShout<T> = T extends { shout: () => infer U } ? U : never;
+
+type A = AnimalShout<Fish>;
+type B = AnimalShout<Cat>;

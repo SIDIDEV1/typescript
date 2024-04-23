@@ -1,14 +1,11 @@
 declare class Fish {
+    shout(): boolean;
 }
 declare class Cat {
+    shout(): string;
 }
-type AnimalOption = {
-    swim: any;
-} | {
-    jump: any;
-};
-type AnimalFromOption<T> = T extends {
-    swim: any;
-} ? Fish : Cat;
-declare function generator<T extends AnimalOption>(options: T): AnimalFromOption<T>;
-declare const a: Cat;
+type AnimalShout<T> = T extends {
+    shout: () => infer U;
+} ? U : never;
+type A = AnimalShout<Fish>;
+type B = AnimalShout<Cat>;

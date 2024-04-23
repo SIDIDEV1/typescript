@@ -1,14 +1,11 @@
 "use strict";
 class Fish {
+    shout() {
+        return false;
+    }
 }
 class Cat {
-}
-function generator(options) {
-    if ("swim" in options) {
-        return new Fish();
-    }
-    else {
-        return new Cat();
+    shout() {
+        return "miaou";
     }
 }
-const a = generator({ jump: "sauter" });
