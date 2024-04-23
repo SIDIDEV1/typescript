@@ -14,3 +14,10 @@ window.ga("send", {
   hitType: "event",
   eventCategory: "category",
 });
+
+import scrollTo from "scroll-to";
+
+scrollTo(500, 1200, {
+  ease: "out-bounce",
+  duration: 1500,
+});
