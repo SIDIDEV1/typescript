@@ -10,7 +10,7 @@ export class Point {
   }
 }
 
-ga("send", {
+window.ga("send", {
   hitType: "event",
   eventCategory: "category",
 });
