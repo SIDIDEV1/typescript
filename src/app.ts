@@ -1,23 +1,16 @@
-export class Point {
-  x = 0;
-  y = 0;
+class Fish {}
 
-  move(x: number, y: number) {
-    this.x += x;
-    this.y += y;
+class Cat {}
 
-    return this;
+type AnimalOption = { swim: any } | { jump: any };
+type AnimalFromOption<T> = T extends { swim: any } ? Fish : Cat;
+
+function generator<T extends AnimalOption>(options: T): AnimalFromOption<T> {
+  if ("swim" in options) {
+    return new Fish();
+  } else {
+    return new Cat();
   }
 }
 
-window.ga("send", {
-  hitType: "event",
-  eventCategory: "category",
-});
-
-import scrollTo from "scroll-to";
-
-scrollTo(500, 1200, {
-  ease: "out-bounce",
-  duration: 1500,
-});
+const a = generator({ jump: "sauter" });

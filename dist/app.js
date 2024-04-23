@@ -1,20 +1,14 @@
-export class Point {
-    constructor() {
-        this.x = 0;
-        this.y = 0;
+"use strict";
+class Fish {
+}
+class Cat {
+}
+function generator(options) {
+    if ("swim" in options) {
+        return new Fish();
     }
-    move(x, y) {
-        this.x += x;
-        this.y += y;
-        return this;
+    else {
+        return new Cat();
     }
 }
-window.ga("send", {
-    hitType: "event",
-    eventCategory: "category",
-});
-var scrollTo = require('scroll-to');
-scrollTo(500, 1200, {
-    ease: 'out-bounce',
-    duration: 1500
-});
+const a = generator({ jump: "sauter" });
